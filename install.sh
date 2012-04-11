@@ -15,6 +15,8 @@ then
 	then
 		echo "Moving private bash to $HOME/.bashrc $HOME/.bashrc_private"
 		mv "$HOME/.bashrc" "$HOME/.bashrc_private"
+	else
+		touch "$HOME/.bashrc_private"
 	fi
 fi
 
@@ -35,7 +37,12 @@ cp configs/vimrc "$HOME/.vimrc"
 
 if [ "$(uname -s | grep "Darwin")" ];
 then
-	if [ ! "$(grep bashrc "$HOME/.profile")"];
+	if [ -e "$HOME/.profile" ];
+	then
+		cp "$HOME/.profile" "$HOME/.profile.bak"
+	fi
+
+	if [ ! "$(grep bashrc "$HOME/.profile")" ];
 	then
 		echo "" >> "$HOME/.profile"
 		echo "# ADDED AUTOMATICALY BY ConsoleSettings" >> "$HOME/.profile"
@@ -44,6 +51,10 @@ then
 
 		echo "Included .bashrc in .profile file"
 	fi
+fi
+if [ -e "$HOME/.gitconfig" ];
+then
+	cp "$HOME/.gitconfig" "$HOME/.gitconfig.bak"
 fi
 
 if [ ! "$(grep "color" "$HOME/.gitconfig")" ];
