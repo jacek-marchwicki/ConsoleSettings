@@ -33,7 +33,7 @@ fi
 cp configs/bashrc "$HOME/.bashrc"
 cp configs/vimrc "$HOME/.vimrc"
 
-if [ "$(uname -r | grep "Darwin")" ];
+if [ "$(uname -s | grep "Darwin")" ];
 then
 	if [ ! "$(grep bashrc "$HOME/.profile")"];
 	then
@@ -79,7 +79,7 @@ echo "while you next run this script"
 
 echo "You have to check your $HOME/.bashrc_private"
 
-if [ "$(uname -r | grep "Darwin")" ];
+if [ "$(uname -s | grep "Darwin")" ];
 then
 	echo "I suggest to set in menu:"
 	echo "	terminal -> preferences -> Settings -> Homebrew"
