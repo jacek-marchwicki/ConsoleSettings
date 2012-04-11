@@ -37,10 +37,10 @@ if [ "$(uname -s | grep "Darwin")" ];
 then
 	if [ ! "$(grep bashrc "$HOME/.profile")"];
 	then
-		echo "" > "$HOME/.profile"
-		echo "# ADDED AUTOMATICALY BY ConsoleSettings" > "$HOME/.profile"
-		echo ". ${HOME}/.bashrc" > "$HOME/.profile"
-		echo "" > "$HOME/.profile"
+		echo "" >> "$HOME/.profile"
+		echo "# ADDED AUTOMATICALY BY ConsoleSettings" >> "$HOME/.profile"
+		echo ". ${HOME}/.bashrc" >> "$HOME/.profile"
+		echo "" >> "$HOME/.profile"
 
 		echo "Included .bashrc in .profile file"
 	fi
@@ -48,11 +48,11 @@ fi
 
 if [ ! "$(grep "color" "$HOME/.gitconfig")" ];
 then
-	echo "" > "$HOME/.gitconfig"
-	echo "[color]" > "$HOME/.gitconfig"
-	echo "	ui = true" > "$HOME/.gitconfig"
-	echo "	diff = true" > "$HOME/.gitconfig"
-	echo "" > "$HOME/.gitconfig"
+	echo "" >> "$HOME/.gitconfig"
+	echo "[color]" >> "$HOME/.gitconfig"
+	echo "	ui = true" >> "$HOME/.gitconfig"
+	echo "	diff = true" >> "$HOME/.gitconfig"
+	echo "" >> "$HOME/.gitconfig"
 fi
 
 if [ -e "$HOME/.git-completion.bash" ];
