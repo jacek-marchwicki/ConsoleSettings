@@ -10,9 +10,11 @@ need it).
 # Instalation
 
 run this commands:
+
     git clone https://jacek-marchwicki@github.com/jacek-marchwicki/ConsoleSettings.git ConsoleSettings
     cd ConsoleSettings
     ./install.sh
+
 follow instructions
 
 # Describe
