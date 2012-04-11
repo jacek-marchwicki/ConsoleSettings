@@ -1,0 +1,88 @@
+#.bashrc
+
+#info:
+#run: .profile
+#copy .bashrc
+#copy .git-completion.bash
+#copy .sqliterc
+#in terminal -> preferences -> Settings -> Homebrew
+
+set meta-flag on
+set input-meta on
+set output-meta on
+set convert-meta off
+set show-all-if-ambiguous on
+set bell-style none
+set print-completions-horizontally off
+
+
+export CLICOLOR=1
+export TERM=xterm-color
+export LSCOLORS=fxfxcxdxbxegedabagacad
+
+source ~/.git-completion.bash
+
+c_cyan=`tput setaf 6`
+c_red=`tput setaf 1`
+c_green=`tput setaf 2`
+c_light_red="$(tput setab 1)"
+c_sgr0=`tput sgr0`
+
+#git rev-parse --show-toplevel
+#git foreach submodule git status | grep "ahead" --quiet
+
+branch_color ()
+{
+    if git rev-parse --git-dir >/dev/null 2>&1
+    then
+        color=""
+	# check if it is smoething not pushed in submodule
+        if (cd `git rev-parse --show-toplevel`; git submodule foreach git status) | grep "ahead" --quiet >/dev/null >&2
+        then
+                color=${c_light_red}
+         else
+		# check if something is not commited
+		if git status | grep "clean" --quiet 2>/dev/null >&2 
+		then
+		    #check if something is not pushed
+		    if git status | grep "ahead" --quiet >/dev/null >&2
+		    then
+			color=${c_cyan}
+		    else
+			color=${c_green}
+		    fi
+		else
+		    color=${c_red}
+		fi
+         fi
+    else
+        return 0
+    fi
+    echo -n $color
+}
+
+parse_git_branch ()
+{
+    if git rev-parse --git-dir >/dev/null 2>&1
+    then
+        gitver="["$(git branch 2>/dev/null| sed -n '/^\*/s/^\* //p')"]"
+    else
+        return 0
+    fi
+echo -e $gitver
+}
+
+PS1='\u@\[${c_red}\]\w\[${c_sgr0}\]\[\[$(branch_color)\]$(parse_git_branch)\[${c_sgr0}\]$ '
+
+# Dynamic resizing
+shopt -s checkwinsize
+# Custom prompt
+# User defined aliases
+alias cls='clear'
+alias clls='clear; ls'
+alias ll='ls -l'
+alias lsa='ls -A'
+alias lsg='ls | grep'
+alias vi='vim'
+
+. ${HOME}/.bashrc_private

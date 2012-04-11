@@ -1,0 +1,8 @@
+syntax on
+set cindent
+set smartindent
+set autoindent
+"set expandtab
+"set tabstop=8
+"set shiftwidth=8
+autocmd FileType c :setlocal sw=2 ts=2 sts=2 expandtab
