@@ -1,6 +1,13 @@
 #!/bin/bash
 
 echo "==========================================="
+echo "ATTENTION"
+echo "if you already read README file hit enter,"
+echo "othervise hit ctrl+c and read README file first"
+read
+
+echo "==========================================="
+echo "INSTALING"
 
 if [ ! -e $HOME/.bashrc_private ];
 then 
@@ -63,6 +70,7 @@ fi
 cp configs/sqliterc "$HOME/.sqliterc"
 
 echo "==========================================="
+echo "DONE"
 
 
 echo "Now your private bashrc settings are in $HOME/.bashrc_private"
