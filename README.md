@@ -1,13 +1,13 @@
 # Attention
 
-do not call install.sh if you are not shure that everyting work fine.
-install.sh create .bak files everytime it will be invoked - its mean
-that if you call it twice first version of bak fille will be replaced.
+* do not call install.sh if you are not sure that everything work fine.
+* install.sh create .bak files everytime it will be invoked - its mean
+that **if you call install.sh twice first version of bak file will be replaced**.
 After everything goes OK you can easly repeat install command (your
-old backup still will be replaced - but if everyting is ok you do not
+old backup still will be replaced - but if everything is ok you do not
 need it).
 
-# Instalation
+# Installation
 
 run this commands:
 
@@ -19,13 +19,14 @@ follow instructions
 
 # Describe
 
-filles will be replaced
+files will be replaced
  * .bashrc
  * .git-completion.bash
  * .sqliterc
  * .vimrc
+ * .screenrc
 
 files will be appended
  * .gitconfig
- * .profile if you are Mac user
+ * .profile - if you are Mac user
 

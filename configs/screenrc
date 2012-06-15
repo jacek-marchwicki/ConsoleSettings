@@ -1,0 +1,15 @@
+#visual alarm
+vbell on
+
+# change schortcut to ctrl+O o
+# escape ^Oo
+
+# long back buffer
+defscrollback 5000
+
+#set bottom bar
+caption     always        "%{+b rk}%H%{gk} |%c %{yk}%d.%m.%Y | %72=Load: %l %{wk}"
+hardstatus alwayslastline "%?%{yk}%-Lw%?%{wb}%n*%f %t%?(%u)%?%?%{yk}%+Lw%?"
+
+# turn off startup message
+startup_message off

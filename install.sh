@@ -13,8 +13,8 @@ if [ ! -e $HOME/.bashrc_private ];
 then 
 	if [ -e $HOME/.bashrc ];
 	then
-		echo "Moving private bash to $HOME/.bashrc $HOME/.bashrc_private"
 		mv "$HOME/.bashrc" "$HOME/.bashrc_private"
+		echo "Moving private bash to $HOME/.bashrc $HOME/.bashrc_private"
 	else
 		touch "$HOME/.bashrc_private"
 	fi
@@ -22,18 +22,25 @@ fi
 
 if [ -e $HOME/.bashrc ];
 then
-	echo "Copy of old bashrc file was created in $HOME/.bashrc.back"
 	cp "$HOME/.bashrc" "$HOME/.bashrc.back"
+	echo "Copy of old bashrc file was created in $HOME/.bashrc.back"
+fi
+
+if [ -e $HOME/.screenrc ];
+then
+	cp "$HOME/.screenrc" "$HOME/.screenrc.back"
+	echo "Copy of old bashrc file was created in $HOME/.screenrc.back"
 fi
 
 if [ -e $HOME/.vimrc ];
 then
-	echo "Copy of old vimrc file was created in $HOME/.vimrc.back"
 	cp "$HOME/.vimrc" "$HOME/.vimrc.back"
+	echo "Copy of old vimrc file was created in $HOME/.vimrc.back"
 fi
 
 cp configs/bashrc "$HOME/.bashrc"
 cp configs/vimrc "$HOME/.vimrc"
+cp configs/screenrc "$HOME/.screenrc"
 
 if [ "$(uname -s | grep "Darwin")" ];
 then
