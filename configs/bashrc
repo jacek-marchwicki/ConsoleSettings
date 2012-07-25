@@ -19,6 +19,7 @@ export TERM=xterm-color
 export LSCOLORS=fxfxcxdxbxegedabagacad
 
 source ${HOME}/.git-completion.bash
+source ${HOME}/.adb-completion.bash
 
 c_cyan=`tput setaf 6`
 c_red=`tput setaf 1`

@@ -77,8 +77,13 @@ if [ -e "$HOME/.git-completion.bash" ];
 then
 	mv "$HOME/.git-completion.bash" "$HOME/.git-completion.bash.bak"
 fi
-
 cp configs/git-completion.bash "$HOME/.git-completion.bash"
+
+if [ -e "$HOME/.adb-completion.bash" ];
+then
+	mv "$HOME/.adb-completion.bash" "$HOME/.adb-completion.bash.bak"
+fi
+cp configs/adb-completion.bash "$HOME/.adb-completion.bash"
 
 if [ -e "$HOME/.sqliterc" ];
 then
