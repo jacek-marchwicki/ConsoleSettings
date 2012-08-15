@@ -6,3 +6,10 @@ set autoindent
 "set tabstop=8
 "set shiftwidth=8
 autocmd FileType c :setlocal sw=2 ts=2 sts=2 expandtab
+autocmd FileType py :setlocal sw=2 ts=2 sts=2 expandtab
+set number
+
+"switching between paste mode
+nnoremap <F2> :set invnumber invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
